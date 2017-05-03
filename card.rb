@@ -5,7 +5,7 @@ class Card
     @suit = suit
   end
 
-  def points
+  def get_points
     ranks = %i[k q j]
     if ranks.include?(rank)
       10
@@ -16,11 +16,15 @@ class Card
     end
   end
 
+  def ace?
+    rank == :a
+  end
+
   def to_s
     symbols = { diamonds: "\u2666",
                 hearts: "\u2665",
                 clubs: "\u2663",
-                spades: "\u2660" }
+                spades: "\u2660" }.freeze
     "|#{rank.to_s.capitalize}#{symbols[suit]}|"
   end
 end

@@ -10,10 +10,13 @@ class Deck
         @cards << Card.new(c, s)
       end
     end
+  end
+  
+  def shuffle!
     @cards.shuffle!
   end
 
   def pull_out
-    @cards.delete(@cards.first)
+    @cards.shift
   end
 end
